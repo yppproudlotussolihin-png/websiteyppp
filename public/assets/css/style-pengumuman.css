@@ -1,0 +1,108 @@
+/* =========================
+   TOMBOL AKSI (DRIVE STYLE)
+========================= */
+.galeri-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+.btn-action {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: .3s ease;
+}
+.btn-detail {
+    background: #eff6ff;
+    color: #2563eb;
+}
+.btn-detail:hover {
+    background: #dbeafe;
+    transform: translateY(-2px);
+}
+.btn-download {
+    background: #f0fdf4;
+    color: #16a34a;
+}
+.btn-download:hover {
+    background: #dcfce7;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   POP-UP (MODAL) ZOOM
+========================= */
+#imageModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 9999999; /* Pastikan di atas navbar dan loader */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(5px);
+}
+#modalImgContainer {
+    position: relative;
+    width: 90%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto; /* Agar bisa digeser jika di-zoom besar */
+}
+#modalImage {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    transform-origin: center center;
+}
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    transition: .3s;
+    z-index: 10;
+}
+.modal-close:hover {
+    color: #ef4444;
+}
+.modal-controls {
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 12px 25px;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+}
+.modal-controls button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    transition: .3s;
+}
+.modal-controls button:hover {
+    color: #93c5fd;
+    transform: scale(1.1);
+}

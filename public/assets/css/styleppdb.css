@@ -1,0 +1,960 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html,
+body{
+    width:100%;
+    min-height:100vh;
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+}
+
+body{
+    padding-top:80px;
+    background:#f5f5f5;
+}
+
+.container{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px;
+}
+
+/* ===================================
+   LOADER
+=================================== */
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    transition: opacity .8s ease, visibility .8s ease;
+}
+
+.loader-container {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Logo di tengah loader */
+.loader-logo {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    z-index: 10;
+}
+
+/* Lingkaran Biru */
+.spinner-blue {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 6px solid transparent;
+    border-top-color: #2563eb;
+    animation: spin 2s linear infinite;
+}
+
+/* Lingkaran Oranye */
+.spinner-orange {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 6px solid transparent;
+    border-bottom-color: #f97316;
+    animation: spin-reverse 1.5s linear infinite;
+}
+
+/* Animasi Putaran */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+    0% { transform: rotate(360deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:#0f172a;
+    z-index:1000;
+    box-shadow:0 4px 15px rgba(0,0,0,.25);
+}
+
+.navbar{
+    padding:15px 0;
+}
+
+.navbar-container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo img{
+    width:55px;
+    height:55px;
+    object-fit:contain;
+}
+
+.logo-text{
+    color:white;
+    line-height:1.1;
+    font-size:22px;
+    font-weight:700;
+}
+
+/* Desktop */
+.desktop-break{
+    display:inline;
+}
+
+/* Tablet & HP */
+@media(max-width:992px){
+
+    .desktop-break{
+        display:none;
+    }
+
+    .logo-text{
+        white-space:nowrap;
+    }
+
+}
+
+/* =========================
+   MENU DESKTOP
+========================= */
+
+.menu{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+.menu li{
+    position:relative;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:500;
+    padding:8px 0;
+    display:block;
+    position:relative;
+}
+
+.menu a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0;
+    height:3px;
+    background:#f97316;
+    border-radius:50px;
+    transition:.35s;
+}
+
+.menu a:hover::after{
+    width:100%;
+}
+
+/* =========================
+   DROPDOWN
+========================= */
+
+.dropdown-menu{
+    position:absolute;
+    top:100%;
+    left:0;
+
+    background:white;
+
+    min-width:220px;
+
+    list-style:none;
+
+    padding:10px 0;
+
+    border-radius:12px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:translateY(10px);
+
+    transition:.3s;
+}
+
+.dropdown:hover .dropdown-menu{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+.dropdown-menu a{
+    color:#333;
+    padding:12px 20px;
+}
+
+.dropdown-menu a:hover{
+    background:#f5f5f5;
+}
+
+/* =========================
+   SUBMENU
+========================= */
+
+.submenu{
+    position:absolute;
+
+    left:100%;
+    top:0;
+
+    background:white;
+
+    min-width:250px;
+
+    list-style:none;
+
+    padding:10px 0;
+
+    border-radius:12px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:translateX(10px);
+
+    transition:.3s;
+}
+
+.dropdown-sub:hover .submenu{
+    opacity:1;
+    visibility:visible;
+    transform:translateX(0);
+}
+
+/* =========================
+   HAMBURGER
+========================= */
+
+.hamburger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+    z-index:9999;
+}
+
+.hamburger span{
+    width:30px;
+    height:3px;
+    background:white;
+    border-radius:10px;
+    transition:.3s;
+}
+
+/* ANIMASI X */
+
+.hamburger.active span:nth-child(1){
+    transform:rotate(45deg) translate(6px,6px);
+}
+
+.hamburger.active span:nth-child(2){
+    opacity:0;
+}
+
+.hamburger.active span:nth-child(3){
+    transform:rotate(-45deg) translate(6px,-6px);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .hamburger{
+        display:flex;
+    }
+
+    .menu{
+
+        position:fixed;
+
+        top:85px;
+        right:-100%;
+
+        width:300px;
+        height:calc(100vh - 85px);
+
+        background:#0f172a;
+
+        flex-direction:column;
+
+        gap:0;
+
+        padding:20px;
+
+        overflow-y:auto;
+
+        transition:.4s ease;
+    }
+
+    .menu.active{
+        right:0;
+    }
+
+    .menu li{
+        width:100%;
+    }
+
+    .menu a{
+        width:100%;
+        padding:15px 10px;
+    }
+
+    .dropdown-menu,
+    .submenu{
+
+        display:none;
+
+        position:static;
+
+        opacity:1;
+        visibility:visible;
+
+        transform:none;
+
+        background:#1e293b;
+
+        border-radius:10px;
+
+        box-shadow:none;
+
+        margin-top:5px;
+    }
+
+    .dropdown.active .dropdown-menu{
+        display:block;
+    }
+
+    .dropdown-sub.active .submenu{
+        display:block;
+    }
+
+    .dropdown-menu a,
+    .submenu a{
+        color:white;
+        padding-left:20px;
+    }
+
+    .logo img{
+        width:45px;
+        height:45px;
+    }
+
+    .logo-text{
+        font-size:15px;
+    }
+}
+
+
+
+
+/* =====================================
+   RESET DASAR WEBSITE
+===================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Plus Jakarta Sans',sans-serif;
+}
+
+
+
+
+
+/* =====================================
+   BACKGROUND WEBSITE
+===================================== */
+
+.app-wrapper{
+
+    width:100%;
+
+    min-height:100vh;
+
+    overflow-y:auto;
+
+    background:
+    linear-gradient(
+    135deg,
+    #0f4c3a 0%,
+    #1a6b4f 30%,
+    #0d3d2e 100%
+    );
+
+}
+
+
+
+/* =====================================
+   CONTAINER FORM
+===================================== */
+
+.form-container{
+
+    max-width:800px;
+
+    margin:0 auto;
+
+    padding:2rem 1rem;
+
+}
+
+
+
+/* =====================================
+   HEADER WEBSITE
+===================================== */
+
+.header-banner{
+
+    text-align:center;
+
+    padding:2rem 1rem;
+
+    color:white;
+
+}
+
+
+
+.header-banner h1{
+
+    font-size:1.8rem;
+
+    font-weight:700;
+
+    margin-bottom:.5rem;
+
+}
+
+
+
+.header-banner p{
+
+    opacity:.8;
+
+    font-size:.95rem;
+
+}
+
+
+
+/* =====================================
+   ORNAMEN HEADER
+===================================== */
+
+.ornament{
+
+    width:60px;
+
+    height:4px;
+
+    margin:0 auto 1rem;
+
+    border-radius:2px;
+
+    background:
+    linear-gradient(
+    90deg,
+    #1a6b4f,
+    #34d399
+    );
+
+}
+
+
+
+
+/* =====================================
+   STEP INDICATOR
+===================================== */
+
+.step-indicator{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:.5rem;
+
+    margin-top:1rem;
+
+}
+
+
+
+
+
+.step-dot{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.3);
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.step-dot.active{
+
+    background:white;
+
+}
+
+
+
+/* =====================================
+   CARD FORM
+===================================== */
+
+.form-card{
+
+    background:#ffffff;
+
+    border-radius:16px;
+
+    padding:2.5rem;
+
+    margin-bottom:1.5rem;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.3);
+
+}
+
+
+
+/* =====================================
+   HEADER SECTION
+===================================== */
+
+.section-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.5rem;
+
+    font-size:1.1rem;
+
+    font-weight:600;
+
+    color:white;
+
+    padding:1rem 1.5rem;
+
+    margin-bottom:1.5rem;
+
+    border-radius:10px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #0f4c3a,
+    #1a6b4f
+    );
+
+}
+
+
+
+/* =====================================
+   FORM GROUP
+===================================== */
+
+.form-group{
+
+    margin-bottom:1.2rem;
+
+}
+
+
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:.4rem;
+
+    color:#334155;
+
+    font-size:.9rem;
+
+    font-weight:500;
+
+}
+
+
+
+
+.required{
+
+    color:#dc2626;
+
+    margin-left:2px;
+
+}
+
+
+
+
+/* =====================================
+   GRID FORM
+===================================== */
+
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:1rem;
+
+}
+
+
+
+/* =====================================
+   INPUT FORM
+===================================== */
+
+.form-input{
+
+    width:100%;
+
+    padding:.7rem 1rem;
+
+    border-radius:8px;
+
+    border:2px solid #e2e8f0;
+
+    background:#f8fafc;
+
+    font-size:.95rem;
+
+    transition:.2s;
+
+}
+
+
+
+.form-input:focus{
+
+    outline:none;
+
+    background:#ffffff;
+
+    border-color:#1a6b4f;
+
+    box-shadow:
+    0 0 0 3px
+    rgba(26,107,79,.1);
+
+}
+
+
+
+
+.form-input:disabled{
+
+    background:#f1f5f9;
+
+    color:#94a3b8;
+
+    cursor:not-allowed;
+
+}
+
+
+
+textarea.form-input{
+
+    resize:vertical;
+
+}
+
+
+/* =====================================
+   TOMBOL SUBMIT
+===================================== */
+
+.btn-submit{
+
+    width:100%;
+
+    border:none;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:1.1rem;
+
+    font-weight:600;
+
+    border-radius:10px;
+
+    padding:1rem;
+
+    transition:.3s;
+
+    background:
+    linear-gradient(
+    135deg,
+    #0f4c3a,
+    #1a6b4f
+    );
+
+}
+
+
+.btn-submit:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 8px 25px
+    rgba(15,76,58,.4);
+
+}
+
+
+
+.btn-submit:disabled{
+
+    opacity:.6;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   RESPONSIVE MOBILE
+===================================== */
+
+@media(max-width:640px){
+
+    .form-grid{
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+    .form-card{
+
+        padding:1.5rem;
+
+    }
+
+}
+
+
+/* =====================================
+   MODAL POPUP TRIGGER & ANIMASI SVG
+===================================== */
+
+/* Animasi SVG Centang / Silang */
+/* Animasi SVG Centang / Silang */
+.animate-svg { 
+    width: 80px; 
+    height: 80px; 
+    margin: 0 auto; 
+    display: block; 
+}
+
+.circle { 
+    stroke-width: 3; 
+    stroke-miterlimit: 10; 
+    stroke-dasharray: 166; 
+    stroke-dashoffset: 166; 
+    animation: drawLine 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards; 
+}
+
+.check, .cross { 
+    stroke-width: 4; 
+    stroke-linecap: round; 
+    stroke-linejoin: round; 
+    stroke-dasharray: 48; 
+    stroke-dashoffset: 48; 
+    animation: drawLine 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards; 
+}
+
+/* Mengganti nama animasi menjadi drawLine agar tidak bentrok */
+@keyframes drawLine { 
+    100% { stroke-dashoffset: 0; } 
+}
+
+
+
+
+
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer{
+    background:#0f172a;
+    color:white;
+    padding:50px 10%;
+}
+
+.footer-container{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:30px;
+}
+
+footer h3{
+    margin-bottom:15px;
+    font-size:20px;
+}
+
+footer p{
+    margin:10px 0;
+}
+
+footer a{
+    color:white;
+    text-decoration:none;
+
+    transition:.3s;
+}
+
+footer a:hover{
+    color:#f97316;
+    padding-left:5px;
+}
+
+footer i{
+    margin-right:8px;
+}
+
+.copyright{
+    text-align:center;
+
+    margin-top:30px;
+
+    padding-top:20px;
+
+    border-top:1px solid
+    rgba(255,255,255,.1);
+
+    font-size:14px;
+}
+
+@media(max-width:768px){
+
+    footer{
+        padding:40px 20px;
+    }
+
+    .footer-container{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .copyright{
+        margin-top:25px;
+    }
+
+}
+
+
+
+
+/* ==========================
+   tambahan multi device
+========================== */
+html,
+body{
+    width:100%;
+    overflow-x:hidden;
+}
+
+*{
+    max-width:100%;
+}

@@ -1,0 +1,37 @@
+*.log
+.DS_Store
+.env
+.env.backup
+.env.production
+.phpactor.json
+.phpunit.result.cache
+/.codex
+/.cursor/
+/.idea
+/.nova
+/.phpunit.cache
+/.vscode
+/.zed
+/auth.json
+/node_modules
+/public/build
+/public/fonts-manifest.dev.json
+/public/hot
+/public/storage
+/storage/*.key
+/storage/pail
+/vendor
+_ide_helper.php
+Homestead.json
+Homestead.yaml
+Thumbs.db
+
+# Large upload files from sub-systems
+/public/portal_berita/assets/uploads/
+/public/assets/kelembagaan/iktsaro-form/uploads/
+/public/assets/kelembagaan/lainzakkaina/uploads/
+
+# Database files (SQLite)
+/database/database.sqlite
+/database/*.sqlite
+

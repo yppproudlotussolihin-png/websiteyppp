@@ -1,0 +1,5 @@
+# Mencegah eksekusi file script berbahaya di folder uploads
+<FilesMatch "\.(php|php5|phtml|exe)$">
+    Order Deny,Allow
+    Deny from All
+</FilesMatch>

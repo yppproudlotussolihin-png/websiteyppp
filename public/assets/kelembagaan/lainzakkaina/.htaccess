@@ -1,0 +1,8 @@
+# File: .htaccess
+Options -Indexes
+
+# Lindungi folder config agar tidak bisa diakses langsung via URL
+<FilesMatch "^\.env|database\.php">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

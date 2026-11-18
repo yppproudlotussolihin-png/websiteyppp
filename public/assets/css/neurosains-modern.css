@@ -1,0 +1,1331 @@
+/* ==========================================================================
+   NEUROSAINS PRO MODERN THEME
+   Yayasan Pendidikan Pondok Pesantren Roudlotussolihin (YPPPRS)
+   Modern Professional Neuroscience & Islamic Education Design System
+   ========================================================================== */
+
+:root {
+    /* Neural Color Palette */
+    --neuro-primary: #0ea5e9;
+    --neuro-primary-hover: #0284c7;
+    --neuro-primary-glow: rgba(14, 165, 233, 0.45);
+    --neuro-secondary: #6366f1;
+    --neuro-secondary-glow: rgba(99, 102, 241, 0.4);
+    --neuro-cyan: #06b6d4;
+    --neuro-teal: #14b8a6;
+    --neuro-emerald: #10b981;
+    --neuro-purple: #8b5cf6;
+    
+    /* Dark Obsidian & Synaptic Glass */
+    --neuro-bg-deep: #070b13;
+    --neuro-bg-header: rgba(8, 12, 20, 0.9);
+    --neuro-surface-dark: #0f172a;
+    --neuro-card-dark: #1e293b;
+    --neuro-glass-border: rgba(56, 189, 248, 0.2);
+    --neuro-glass-border-hover: rgba(56, 189, 248, 0.5);
+    
+    /* Clean Light Surfaces */
+    --neuro-bg-light: #f8fafc;
+    --neuro-bg-surface: #ffffff;
+    --neuro-border-light: #e2e8f0;
+    --neuro-border-hover: #cbd5e1;
+    
+    /* Typography Colors */
+    --neuro-text-dark: #0f172a;
+    --neuro-text-muted: #475569;
+    --neuro-text-light: #f8fafc;
+    --neuro-text-dim: #94a3b8;
+    
+    /* Synaptic Gradients */
+    --neuro-gradient-main: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 50%, #6366f1 100%);
+    --neuro-gradient-accent: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 50%, #8b5cf6 100%);
+    --neuro-gradient-badge: linear-gradient(135deg, rgba(14, 165, 233, 0.12) 0%, rgba(99, 102, 241, 0.12) 100%);
+    --neuro-gradient-hero-bg: radial-gradient(ellipse at 80% 15%, rgba(14, 165, 233, 0.28) 0%, transparent 60%),
+                             radial-gradient(ellipse at 15% 85%, rgba(99, 102, 241, 0.25) 0%, transparent 60%),
+                             #070a12;
+    
+    /* Shadows */
+    --neuro-shadow-card: 0 10px 30px -10px rgba(15, 23, 42, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.04);
+    --neuro-shadow-card-hover: 0 20px 40px -12px rgba(14, 165, 233, 0.25), 0 12px 20px -8px rgba(15, 23, 42, 0.08);
+    --neuro-shadow-glow: 0 0 25px rgba(14, 165, 233, 0.45);
+    --neuro-radius-sm: 8px;
+    --neuro-radius-md: 14px;
+    --neuro-radius-lg: 20px;
+    --neuro-radius-full: 9999px;
+}
+
+/* ==========================================================================
+   GLOBAL RESET & TYPOGRAPHY
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--neuro-bg-light);
+    color: var(--neuro-text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Neural Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0b0f19;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #0ea5e9, #6366f1);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #38bdf8;
+}
+
+.container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ==========================================================================
+   HEADER & NAVBAR (SYNAPTIC FROSTED GLASS)
+   ========================================================================== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--neuro-bg-header);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--neuro-glass-border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    transition: all 0.3s ease;
+}
+
+.navbar {
+    padding: 14px 0;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+}
+
+.logo img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    border-radius: 50%;
+    padding: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1.5px solid var(--neuro-cyan);
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.06) rotate(3deg);
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.6);
+}
+
+.logo-text {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Desktop Menu */
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 22px;
+    align-items: center;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu a {
+    color: rgba(255, 255, 255, 0.88);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: block;
+    position: relative;
+    transition: all 0.25s ease;
+}
+
+.menu a:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Active State with Neural Pill Glow */
+.menu a.active,
+.menu a.active::after {
+    color: #ffffff;
+}
+
+.menu > li > a.active {
+    background: rgba(14, 165, 233, 0.15);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    box-shadow: 0 0 15px rgba(14, 165, 233, 0.25);
+}
+
+.menu > li > a::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2.5px;
+    background: var(--neuro-gradient-main);
+    border-radius: 50px;
+    box-shadow: 0 0 8px var(--neuro-primary);
+    transition: width 0.3s ease;
+}
+
+.menu > li > a:hover::after {
+    width: 60%;
+}
+
+/* ==========================================================================
+   DROPDOWNS & SUBMENUS (SYNAPTIC DARK GLASS)
+   ========================================================================== */
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background: rgba(15, 23, 42, 0.96);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    min-width: 240px;
+    list-style: none;
+    padding: 10px;
+    border-radius: var(--neuro-radius-md);
+    border: 1px solid var(--neuro-glass-border);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 20px rgba(14, 165, 233, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1010;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu a {
+    color: #cbd5e1;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+    color: #ffffff;
+    background: rgba(14, 165, 233, 0.16);
+    padding-left: 18px;
+    box-shadow: inset 3px 0 0 var(--neuro-primary);
+}
+
+/* Submenu */
+.submenu {
+    position: absolute;
+    left: calc(100% + 8px);
+    top: 0;
+    background: rgba(15, 23, 42, 0.96);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    min-width: 250px;
+    list-style: none;
+    padding: 10px;
+    border-radius: var(--neuro-radius-md);
+    border: 1px solid var(--neuro-glass-border);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(12px);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1020;
+}
+
+.dropdown-sub:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* ==========================================================================
+   HAMBURGER & MOBILE DRAWER (BREAKPOINT 992px)
+   ========================================================================== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 9999;
+    padding: 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.3s;
+}
+
+.hamburger:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.hamburger span {
+    width: 26px;
+    height: 2.5px;
+    background: #ffffff;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+    background: var(--neuro-cyan);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+    background: var(--neuro-cyan);
+}
+
+@media (max-width: 992px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .menu {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        width: 320px;
+        max-width: 85vw;
+        height: calc(100vh - 80px);
+        background: rgba(8, 12, 20, 0.98);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border-left: 1px solid var(--neuro-glass-border);
+        flex-direction: column;
+        gap: 4px;
+        padding: 24px 18px 40px 18px;
+        overflow-y: auto;
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 1000;
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .menu.active {
+        right: 0;
+    }
+
+    .menu li {
+        width: 100%;
+    }
+
+    .menu a {
+        width: 100%;
+        padding: 12px 14px;
+        font-size: 15px;
+    }
+
+    .dropdown-menu,
+    .submenu {
+        display: none;
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background: rgba(15, 23, 42, 0.8);
+        border-radius: 10px;
+        box-shadow: none;
+        margin: 4px 0 8px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .dropdown.active > .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-sub.active > .submenu {
+        display: block;
+    }
+
+    .dropdown-menu a,
+    .submenu a {
+        color: #e2e8f0;
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+
+    .logo-text {
+        font-size: 16px;
+    }
+}
+
+/* ==========================================================================
+   LOADER (NEURAL IMPULSE PULSE)
+   ========================================================================== */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #070b13;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loader-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid transparent;
+}
+
+.spinner-blue {
+    border-top-color: var(--neuro-cyan);
+    border-right-color: var(--neuro-primary);
+    box-shadow: 0 0 20px var(--neuro-primary-glow);
+    animation: neuroSpin 1.4s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.spinner-orange {
+    width: 82%;
+    height: 82%;
+    border-bottom-color: var(--neuro-secondary);
+    border-left-color: var(--neuro-purple);
+    box-shadow: 0 0 15px var(--neuro-secondary-glow);
+    animation: neuroSpinReverse 1s linear infinite;
+}
+
+.loader-logo {
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+    z-index: 2;
+    filter: drop-shadow(0 0 12px rgba(14, 165, 233, 0.6));
+    animation: neuroPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes neuroSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes neuroSpinReverse {
+    0% { transform: rotate(360deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes neuroPulse {
+    0%, 100% { transform: scale(0.94); opacity: 0.85; }
+    50% { transform: scale(1.06); opacity: 1; }
+}
+
+/* ==========================================================================
+   HERO SECTION (NEURAL FUTURISTIC)
+   ========================================================================== */
+.hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 140px 20px 80px 20px;
+    background: var(--neuro-gradient-hero-bg);
+    overflow: hidden;
+}
+
+.hero .overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(7, 11, 19, 0.4) 0%, rgba(7, 11, 19, 0.85) 100%);
+    pointer-events: none;
+}
+
+/* Animated Neural Grid Pattern */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: center center;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.22;
+    letter-spacing: -1px;
+    margin-bottom: 22px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ffffff 40%, #7dd3fc 75%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #cbd5e1;
+    max-width: 720px;
+    margin: 0 auto 34px auto;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+/* Neural Primary CTA Button */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 36px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    background: var(--neuro-gradient-main);
+    border-radius: var(--neuro-radius-full);
+    text-decoration: none;
+    box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.5), 0 0 15px rgba(6, 182, 212, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 35px -5px rgba(14, 165, 233, 0.65), 0 0 25px rgba(6, 182, 212, 0.5);
+    color: #ffffff;
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 80vh;
+        padding: 130px 16px 60px 16px;
+    }
+    .hero-content h1 {
+        font-size: 30px;
+        line-height: 1.25;
+    }
+    .hero-content p {
+        font-size: 15px;
+    }
+    .btn {
+        padding: 12px 28px;
+        font-size: 15px;
+    }
+}
+
+/* ==========================================================================
+   BADGES & HEADINGS (PRO MODERN NEUROSAINS)
+   ========================================================================== */
+.section-badge,
+.section-title span,
+.tentang-header .section-badge,
+.sejarah-header .section-badge,
+.pengumuman-header .section-badge {
+    display: inline-block;
+    padding: 6px 18px;
+    background: var(--neuro-gradient-badge);
+    color: #0284c7 !important;
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    border-radius: var(--neuro-radius-full);
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 10px rgba(14, 165, 233, 0.1);
+}
+
+.tentang-header h2,
+.section-title h2,
+.pendiri-header h2,
+.berita-title h2,
+.sejarah-header h2,
+.pengumuman-header h2,
+.detail-header h2 {
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--neuro-text-dark);
+    line-height: 1.28;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+}
+
+.tentang-header p,
+.section-title p,
+.pendiri-header p,
+.berita-title p,
+.sejarah-header p,
+.pengumuman-header p {
+    color: var(--neuro-text-muted) !important;
+    font-size: 15.5px;
+    line-height: 1.8;
+}
+
+/* ==========================================================================
+   TENTANG YAYASAN SECTION
+   ========================================================================== */
+.tentang-yayasan {
+    padding: 90px 0;
+    background: var(--neuro-bg-surface);
+}
+
+.tentang-header {
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto 50px auto;
+}
+
+.tentang-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.tentang-image {
+    position: relative;
+    border-radius: var(--neuro-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--neuro-shadow-card);
+    border: 1px solid var(--neuro-border-light);
+}
+
+.tentang-image img {
+    width: 100%;
+    height: 100%;
+    max-height: 460px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.tentang-image:hover img {
+    transform: scale(1.04);
+}
+
+.tentang-content .mini-title {
+    color: var(--neuro-primary);
+    font-size: 13.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.tentang-content h3 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--neuro-text-dark);
+    margin-bottom: 18px;
+    line-height: 1.35;
+}
+
+.tentang-content p {
+    color: var(--neuro-text-muted);
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+
+.tentang-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--neuro-text-dark) !important;
+    background: var(--neuro-bg-light);
+    padding: 12px 16px;
+    border-radius: var(--neuro-radius-sm);
+    border: 1px solid var(--neuro-border-light);
+    transition: all 0.25s ease;
+}
+
+.list-item:hover {
+    border-color: var(--neuro-primary);
+    background: rgba(14, 165, 233, 0.05);
+    transform: translateX(4px);
+}
+
+.list-item i {
+    color: var(--neuro-primary);
+    font-size: 16px;
+}
+
+@media (max-width: 900px) {
+    .tentang-wrapper {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+    .tentang-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   PENDIRI / STATISTIK SECTION
+   ========================================================================== */
+.pendiri-yayasan {
+    padding: 90px 0;
+    background: var(--neuro-bg-light);
+}
+
+.pendiri-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.pendiri-image {
+    position: relative;
+    border-radius: var(--neuro-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--neuro-shadow-card);
+    border: 1px solid var(--neuro-border-light);
+}
+
+.pendiri-image img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+/* ==========================================================================
+   VISI MISI & CARDS (NEUROSAINS PRO MODERN CARDS)
+   ========================================================================== */
+.visi-misi-section {
+    padding: 90px 0;
+    background: var(--neuro-bg-surface);
+}
+
+.visi-misi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.visi-card,
+.misi-card,
+.gedung-card,
+.berita-card,
+.pengumuman-card,
+.fasilitas-card,
+.industri-card {
+    background: var(--neuro-bg-surface);
+    border-radius: var(--neuro-radius-md);
+    border: 1px solid var(--neuro-border-light);
+    box-shadow: var(--neuro-shadow-card);
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.visi-card:hover,
+.misi-card:hover,
+.gedung-card:hover,
+.berita-card:hover,
+.pengumuman-card:hover,
+.fasilitas-card:hover,
+.industri-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--neuro-shadow-card-hover);
+    border-color: rgba(14, 165, 233, 0.4);
+}
+
+/* ==========================================================================
+   GEDUNG / UNIT PENDIDIKAN GRID
+   ========================================================================== */
+.gedung-pendidikan {
+    padding: 90px 0;
+    background: var(--neuro-bg-light);
+}
+
+.gedung-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 26px;
+    margin-top: 40px;
+}
+
+.gedung-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.gedung-image,
+.berita-image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: #0f172a;
+}
+
+.gedung-image img,
+.berita-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gedung-card:hover .gedung-image img,
+.berita-card:hover .berita-image img {
+    transform: scale(1.08);
+}
+
+.gedung-content,
+.berita-content {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.gedung-content h3,
+.berita-content h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--neuro-text-dark);
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.gedung-content p,
+.berita-content p {
+    color: var(--neuro-text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    flex-grow: 1;
+}
+
+.gedung-btn,
+.berita-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--neuro-primary);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.gedung-btn:hover,
+.berita-link:hover {
+    color: var(--neuro-secondary);
+    gap: 10px;
+}
+
+/* ==========================================================================
+   BERITA & ARTIKEL SLIDER
+   ========================================================================== */
+.berita-section {
+    padding: 90px 0;
+    background: var(--neuro-bg-surface);
+}
+
+.berita-title {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 50px auto;
+}
+
+.berita-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.berita-meta .kategori {
+    color: var(--neuro-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    background: rgba(14, 165, 233, 0.1);
+    padding: 3px 10px;
+    border-radius: var(--neuro-radius-full);
+}
+
+.berita-meta .tanggal {
+    color: var(--neuro-text-muted);
+}
+
+.berita-footer {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.btn-semua-berita {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 32px;
+    border: 1.5px solid var(--neuro-primary);
+    color: var(--neuro-primary);
+    border-radius: var(--neuro-radius-full);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.btn-semua-berita:hover {
+    background: var(--neuro-gradient-main);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.45);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   SLIDER ARROWS & DOTS (NEURAL GLASS)
+   ========================================================================== */
+.slider-arrow {
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #ffffff;
+    border: 1px solid var(--neuro-glass-border);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.slider-arrow:hover {
+    background: var(--neuro-primary);
+    border-color: transparent;
+    box-shadow: 0 0 20px var(--neuro-primary-glow);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: #cbd5e1;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.35s ease;
+}
+
+.dot.active {
+    width: 26px;
+    border-radius: 20px;
+    background: var(--neuro-gradient-main);
+    box-shadow: 0 0 10px var(--neuro-primary-glow);
+}
+
+/* ==========================================================================
+   POPUP INFORMASI AWAL (NEURAL GLASS MODAL)
+   ========================================================================== */
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(7, 11, 19, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.35s ease;
+    padding: 20px;
+}
+
+.popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-content {
+    background: #ffffff;
+    width: 100%;
+    max-width: 480px;
+    border-radius: var(--neuro-radius-lg);
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.5), 0 0 30px rgba(14, 165, 233, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transform: scale(0.85) translateY(20px);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.popup-overlay.active .popup-content {
+    transform: scale(1) translateY(0);
+}
+
+.popup-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(8px);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.popup-close:hover {
+    background: #ef4444;
+    transform: rotate(90deg);
+}
+
+.popup-body {
+    padding: 24px;
+    text-align: center;
+}
+
+.popup-body h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--neuro-text-dark);
+    margin-bottom: 10px;
+}
+
+.popup-body p {
+    color: var(--neuro-text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.popup-btn {
+    display: inline-block;
+    background: var(--neuro-gradient-main);
+    color: #ffffff;
+    padding: 12px 30px;
+    border-radius: var(--neuro-radius-full);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 8px 20px -4px rgba(14, 165, 233, 0.45);
+    transition: all 0.25s ease;
+}
+
+.popup-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px -4px rgba(14, 165, 233, 0.6);
+}
+
+/* ==========================================================================
+   PPDB & FORM STYLES (NEUROSAINS CLEAN FORM)
+   ========================================================================== */
+.app-wrapper {
+    padding-top: 110px !important;
+    padding-bottom: 60px !important;
+    background: radial-gradient(ellipse at 80% 20%, rgba(14, 165, 233, 0.25) 0%, transparent 50%),
+                radial-gradient(ellipse at 20% 80%, rgba(99, 102, 241, 0.22) 0%, transparent 50%),
+                #070a12 !important;
+    min-height: 100vh;
+}
+
+.form-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.form-card {
+    background: #ffffff !important;
+    border-radius: var(--neuro-radius-md) !important;
+    border: 1px solid var(--neuro-border-light) !important;
+    box-shadow: var(--neuro-shadow-card) !important;
+    padding: 28px !important;
+    margin-bottom: 24px !important;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--neuro-text-dark);
+    margin-bottom: 6px;
+}
+
+.form-input,
+.form-select,
+textarea.form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: var(--neuro-radius-sm);
+    border: 1px solid var(--neuro-border-light);
+    font-size: 14.5px;
+    color: var(--neuro-text-dark);
+    background: #f8fafc;
+    transition: all 0.25s ease;
+}
+
+.form-input:focus,
+.form-select:focus,
+textarea.form-input:focus {
+    background: #ffffff;
+    border-color: var(--neuro-primary) !important;
+    box-shadow: 0 0 0 3.5px rgba(14, 165, 233, 0.18) !important;
+    outline: none;
+}
+
+.required {
+    color: #ef4444;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   DETAIL / TENTANG / FASILITAS SUB-PAGES RESPONSIVE FIX
+   ========================================================================== */
+.sejarah-page,
+.masjid-section,
+.detail-section,
+.pengumuman-section,
+.kepsek-section,
+.unit-section,
+.industri-section {
+    padding: 140px 0 80px 0 !important;
+    background: var(--neuro-bg-light);
+}
+
+.sejarah-header,
+.pengumuman-header,
+.detail-header {
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto 50px auto;
+}
+
+.sejarah-content,
+.pengumuman-content,
+.detail-box,
+.pengumuman-box {
+    background: #ffffff;
+    border-radius: var(--neuro-radius-lg);
+    padding: 40px;
+    box-shadow: var(--neuro-shadow-card);
+    border: 1px solid var(--neuro-border-light);
+    margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    .sejarah-page,
+    .masjid-section,
+    .detail-section,
+    .pengumuman-section,
+    .kepsek-section,
+    .unit-section,
+    .industri-section {
+        padding: 110px 16px 60px 16px !important;
+    }
+    .sejarah-content,
+    .pengumuman-content,
+    .detail-box,
+    .pengumuman-box {
+        padding: 24px;
+    }
+}
+
+/* ==========================================================================
+   FOOTER (SYNAPTIC OBSIDIAN DARK)
+   ========================================================================== */
+footer {
+    background: var(--neuro-bg-deep);
+    border-top: 1px solid var(--neuro-glass-border);
+    color: #cbd5e1;
+    padding: 70px 0 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    width: 70%;
+    height: 1px;
+    background: var(--neuro-gradient-main);
+    box-shadow: 0 0 15px var(--neuro-primary);
+}
+
+.footer-container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px 60px 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+footer h3 {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    margin-bottom: 22px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+footer h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 36px;
+    height: 2.5px;
+    background: var(--neuro-primary);
+    border-radius: 10px;
+    box-shadow: 0 0 8px var(--neuro-primary);
+}
+
+footer p {
+    font-size: 14.5px;
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+footer a {
+    color: #94a3b8;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+}
+
+footer a:hover {
+    color: #38bdf8;
+    transform: translateX(4px);
+}
+
+footer a i {
+    color: var(--neuro-primary);
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+}
+
+.copyright {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 24px;
+    text-align: center;
+    font-size: 13.5px;
+    color: #64748b;
+    background: rgba(0, 0, 0, 0.35);
+}
